@@ -45,6 +45,8 @@ def next():
     atomicnum.config(state=DISABLED)
     atomicnum.grid(row=0, column=0, sticky=W)
 
+    e.delete(0, 'end')
+
     checkbutton = Button(window, text='check', fg='black', bg='red', command=lambda: check(), height=1, width=7)
     checkbutton.grid(row=1, column=1)
     return question, correctans, wrong
@@ -53,6 +55,7 @@ def check():
     global wrong
     answer = e.get()
     answer = answer.lower()
+    e.delete(0, 'end')
     if answer == correctans:
         correct()
     elif answer != correctans:
